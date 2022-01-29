@@ -1,17 +1,18 @@
 import 'dart:convert';
 
+import 'package:bug_bounty/models/Organization.dart';
 import 'package:bug_bounty/models/User.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  String URL = 'http://143.244.133.9:5001';
+  String URL = 'http://192.168.1.31:8080';
 
   Future<bool> loginUser(String contact, String password) async {
-    Map data = {"contact": contact, "password": password};
-    var response =
-        await http.post(Uri.parse('$URL/user/login'), body: json.encode(data));
-    print('LOGIN RESPONSE : ${json.decode(response.body)}');
+    Map data = {"userContactNumber": contact, "userPassword": password};
+    var response = await http.post(Uri.parse('$URL/user/login'),
+        body: json.encode(data), headers: {'Content-type': 'application/json'});
+    // print('LOGIN RESPONSE : ${json.decode(response.body)}');r
     if (response.statusCode == 200) {
       User user = User.fromJson(json.decode(response.body));
       user.userContactNumber = contact;
@@ -23,17 +24,52 @@ class ApiService {
   }
 
   Future<bool> registerUser(User user) async {
-    return true;
-    // var response = await http.post(Uri.parse('$URL/user/register'),
-        // body: json.encode(data));
-    // print('REGISTER RESPONSE : ${json.decode(response.body)}');
-    // if (response.statusCode == 200) {
-    //   User user = User.fromJson(json.decode(response.body));
-    //   // user.userContactNumber = contact;
-    //   PrefsHelper().saveUserInfo(jsonEncode(user));
-    //   return true;
-    // } else {
-    //   return false;
-    // }
+    var response = await http.post(Uri.parse('$URL/user'),
+        body: json.encode(user), headers: {'Content-type': 'application/json'});
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<List<Organization>> getOrgByUserId(int id) async {
+    var respose = await http.get(Uri.parse('$URL/organization/$id'));
+
+    List res = jsonDecode(respose.body) as List;
+    List<Organization> orgList = [];
+
+    for (int i = 0; i < res.length; i++) {
+      print(res[i]);
+      orgList.add(Organization.fromJson(res[i]));
+    }
+
+    return orgList;
+  }
+
+  Future<bool> addOrganization(Organization org, int userId) async {
+    Map data = {
+      "organizationName": org.organizationName,
+      "organizationDescription": org.organizationDescription,
+      "organizationWebsite": org.organizationWebsite,
+      "userId": userId
+    };
+    var response = await http.post(Uri.parse('$URL/organization'),
+        body: json.encode(data), headers: {'Content-type': 'application/json'});
+    print(response.body);
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> deleteOrganization(int id) async {
+    var response = await http.delete(Uri.parse('$URL/organization/$id'));
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
