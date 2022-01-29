@@ -1,5 +1,8 @@
+import 'package:bug_bounty/screens/dashboard.dart';
 import 'package:bug_bounty/screens/register_screen.dart';
+import 'package:bug_bounty/utils/ApiService.dart';
 import 'package:bug_bounty/utils/AppStyle.dart';
+import 'package:bug_bounty/utils/Utility.dart';
 import 'package:bug_bounty/widgets/basic_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -169,10 +172,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   height: height * 0.08,
                                   width: width * 0.5,
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: AppStyle.darkCream),
+                                    border:
+                                        Border.all(color: AppStyle.darkCream),
                                     borderRadius: BorderRadius.circular(10.0),
                                     boxShadow: [
-                                      BoxShadow(color: Colors.grey, blurRadius: 2)
+                                      BoxShadow(
+                                          color: Colors.grey, blurRadius: 2)
                                     ],
                                     gradient: LinearGradient(
                                         colors: [
@@ -191,7 +196,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )),
                                 ),
                                 onTap: () {
-                                  if (_formKey.currentState!.validate()) {}
+                                  if (_formKey.currentState!.validate()) {
+                                    ApiService()
+                                        .loginUser(phoneController.text,
+                                            passwordController.text)
+                                        .then((value) {
+                                      if (value) {
+                                        print('IN');
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute<void>(
+                                              builder: (BuildContext context) =>
+                                                  HomeScreen(),
+                                            ));
+                                      } else {
+                                        Utility().showToast(
+                                            'Your username or password is incorrect');
+                                      }
+                                    });
+                                  }
                                 },
                               ),
                               SizedBox(
