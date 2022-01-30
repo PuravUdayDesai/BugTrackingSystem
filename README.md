@@ -45,7 +45,38 @@ API Documentation Link: [https://documenter.getpostman.com/view/13664185/UVeCQTt
 
 ## Screenshots
 
-## Video Demo
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg" />
+    </td>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg" />
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg" />
+    </td>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg" />
+    </td>
+  </tr>
+</table>
+
+Screenshot Links: 
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_2.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_2.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_4.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_4.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_6.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_6.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_7.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_7.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_8.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_8.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_9.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_9.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg)
+- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg)
 
 ## Code & Document Links
 
