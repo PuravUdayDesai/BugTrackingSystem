@@ -78,6 +78,26 @@ Screenshot Links:
 - [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg)
 - [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg)
 
+## Screenshots [Internationalization]
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_13.jpeg" />
+    </td>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_14.jpeg" />
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_15.jpeg" />
+    </td>
+    <td>
+      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_16.jpeg" />
+    </td>
+  </tr>
+</table>
+
 ## Video Demo
 Link: [https://drive.google.com/file/d/1gcfj9UqcMrG5s4dvn3PbmdAQiVZ8Hd-Y/view?usp=sharing](https://drive.google.com/file/d/1gcfj9UqcMrG5s4dvn3PbmdAQiVZ8Hd-Y/view?usp=sharing)
 
