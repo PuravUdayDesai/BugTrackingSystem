@@ -4,6 +4,7 @@ import 'package:bug_bounty/Widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/User.dart';
 
 import 'package:bug_bounty/utils/AppStyle.dart';
+import 'package:bug_bounty/utils/Constants.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:flutter/material.dart';
 
@@ -94,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    List<User> _user = Constants().getUserInfo();
 
     return _isLoading
         ? Scaffold(
@@ -173,12 +175,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     ? AssetImage('assets/second.jpg')
                                                                     : AssetImage('assets/third.jpg')))),
                                                 title: Text(
-                                                  'Jay',
+                                                  _user[index].userName
+                                                      as String,
                                                   style: TextStyle(
                                                     color: AppStyle.brown,
                                                   ),
                                                 ),
-                                                trailing: Text('10'),
+                                                trailing: Text(_user[index]
+                                                    .userId
+                                                    .toString()),
                                               ),
                                             );
                                           })),

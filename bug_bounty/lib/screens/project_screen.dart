@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bug_bounty/Widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/Organization.dart';
 import 'package:bug_bounty/models/Project.dart';
+import 'package:bug_bounty/screens/create_ticket.dart';
 import 'package:bug_bounty/utils/ApiService.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:bug_bounty/utils/Utility.dart';
@@ -111,14 +112,12 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   ],
                 ),
                 onTap: () {
-                  // Navigator.push(context,MaterialPageRoute(builder : (context)=>UpdateCompany(obj))).then((value){
-                  // 	if(value != null){
-                  // 		showMessage('Record Successfully Updated.!!');
-                  // 		setState((){
-                  // 			getNewData = true;
-                  // 		});
-                  // 	}
-                  // });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => CreateTicket(projectInfo: org,),
+                    ),
+                  );
                 })),
         Divider(),
       ],
