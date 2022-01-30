@@ -10,7 +10,7 @@ public class ConnectionProvider {
 	{
 		
 		Class.forName("org.postgresql.Driver");
-		c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bug_bounty", "postgres", "purav");
+		c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bug_bounty", "<USERNAME>", "<PASSWORD>");
 		c.setAutoCommit(false);
 		return c;
 	}
