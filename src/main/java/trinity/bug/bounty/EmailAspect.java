@@ -20,8 +20,8 @@ public class EmailAspect {
 													String bodyContentType) throws MessagingException 
 	{
 		String host="smtp.gmail.com";  
-	 	final String user="experiments.2ndit@gmail.com"; 
- 		final String password="System.out.println(\"7838\");";
+	 	final String user="<EMAIL-ID>"; 
+ 		final String password="<PASSWORD>";
 	 	Properties props = new Properties();  
 		props.put("mail.smtp.auth", true);
 		props.put("mail.smtp.starttls.enable", true);
