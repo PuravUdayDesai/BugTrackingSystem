@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bug_bounty/widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/Organization.dart';
+import 'package:bug_bounty/models/Project.dart';
 import 'package:bug_bounty/utils/ApiService.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:bug_bounty/utils/Utility.dart';
@@ -20,15 +21,16 @@ class ProjectScreen extends StatefulWidget {
 class _ProjectScreenState extends State<ProjectScreen> {
   bool _isLoading = false;
   User? userInfo;
+  List<Organization> _orgInfo = [];
 
   @override
   void initState() {
     setState(() {
       _isLoading = true;
     });
-    PrefsHelper().getUserInfo().then((value) {
+    PrefsHelper().getUserInfo().then((value) async {
       userInfo = User.fromJson(json.decode(value));
-      print(userInfo);
+      _orgInfo = await ApiService().getOrgByUserId(userInfo!.userId as int);
       setState(() {
         _isLoading = false;
       });
@@ -36,7 +38,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
     super.initState();
   }
 
-  Widget makeCard(Organization org) {
+  Widget makeCard(Project org) {
     DateTime _date = DateTime.parse(org.createdOn as String);
 
     return Column(
@@ -44,7 +46,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
         Card(
             elevation: 7,
             child: ListTile(
-                title: Text(org.organizationName as String,
+                title: Text(org.applicationName as String,
                     style: TextStyle(
                         color: AppStyle.brown, fontWeight: FontWeight.bold)),
                 subtitle: Text(Utility().getFormattedDate(_date)),
@@ -89,8 +91,8 @@ class _ProjectScreenState extends State<ProjectScreen> {
                                           )),
                                       onPressed: () {
                                         ApiService()
-                                            .deleteOrganization(
-                                                org.organizationId as int)
+                                            .deleteProject(
+                                                org.applicationId as int)
                                             .then((value) {
                                           if (value) {
                                             Navigator.of(c).pop();
@@ -123,7 +125,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
     );
   }
 
-  void _bottomSheet(context, Organization org) {
+  void _bottomSheet(context, Project org) {
     showModalBottomSheet(
         context: context,
         shape: RoundedRectangleBorder(
@@ -136,7 +138,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
             child: SingleChildScrollView(
               child: Column(children: <Widget>[
                 Center(
-                    child: Text('Organization Details',
+                    child: Text('Project Details',
                         style: TextStyle(
                           fontSize: AppStyle.XLargeTextSize,
                           color: AppStyle.brown,
@@ -144,22 +146,22 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 SizedBox(height: 10.0),
                 ListTile(
                   title: DisplayDetails(
-                    title: 'Organization name:',
-                    info: org.organizationName as String,
+                    title: 'Project name:',
+                    info: org.applicationName as String,
                   ),
                   onTap: () => {},
                 ),
                 ListTile(
                   title: DisplayDetails(
                     title: 'Description:',
-                    info: org.organizationDescription as String,
+                    info: org.applicationDescription as String,
                   ),
                   onTap: () => {},
                 ),
                 ListTile(
                   title: DisplayDetails(
-                    title: 'Website link:',
-                    info: org.organizationWebsite as String,
+                    title: 'Visibility:',
+                    info: org.markForPrivate == true ? 'Private' : 'Public',
                   ),
                   onTap: () => {},
                 ),
@@ -181,14 +183,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
   Widget getDialog(String title, double height, context) {
     TextEditingController _projName = TextEditingController();
     TextEditingController _projDesc = TextEditingController();
-    String? _dropdownvalue;
-    var items = [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
-      'Item 5',
-    ];
+    String? _appVis;
+    int? _dropdownvalue;
+
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: height * 0.3),
       child: AlertDialog(
@@ -197,17 +194,20 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: TextButton(
             child: Text('Submit', style: TextStyle(color: AppStyle.brown)),
             onPressed: () {
-              // ApiService()
-              //     .addOrganization(org, userInfo!.userId as int)
-              //     .then((value) {
-              //   if (value) {
-              //     Navigator.pop(context);
-              //     setState(() {});
-              //   } else {
-              //     Utility().showToast(
-              //         'Unable to add organization, please try again.');
-              //   }
-              // });
+              Project proj = Project(
+                  applicationName: _projName.text,
+                  applicationDescription: _projDesc.text,
+                  organizationId: _dropdownvalue,
+                  markForPrivate: _appVis == 'Private' ? true : false);
+              ApiService().addProject(proj).then((value) {
+                if (value) {
+                  Navigator.pop(context);
+                  setState(() {});
+                } else {
+                  Utility().showToast(
+                      'Unable to add organization, please try again.');
+                }
+              });
             },
             style: ButtonStyle(
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -252,21 +252,47 @@ class _ProjectScreenState extends State<ProjectScreen> {
                     if (val!.isEmpty) return 'Project description is required';
                   },
                   obscureText: false),
-              DropdownButton(
-                  value: _dropdownvalue,
-                  hint: Text('Select organization'),
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: items.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _dropdownvalue = newValue!;
-                    });
-                  })
+              SizedBox(
+                height: height * 0.015,
+              ),
+              StatefulBuilder(
+                builder:
+                    (BuildContext context, void Function(void Function()) st) {
+                  return DropdownButton(
+                      value: _dropdownvalue,
+                      hint: Text('Select organization'),
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      items: _orgInfo.map((Organization item) {
+                        return DropdownMenuItem(
+                          value: item.organizationId,
+                          child: Text(item.organizationName as String),
+                        );
+                      }).toList(),
+                      onChanged: (int? newValue) {
+                        st(() {
+                          _dropdownvalue = newValue!;
+                        });
+                      });
+                },
+              ),
+              StatefulBuilder(
+                builder:
+                    (BuildContext context, void Function(void Function()) st) {
+                  return DropdownButton(
+                    value: _appVis,
+                    hint: Text('Visibility of project'),
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items: ['Public', 'Private'].map((e) {
+                      return DropdownMenuItem(value: e, child: Text(e));
+                    }).toList(),
+                    onChanged: (val) {
+                      st(() {
+                        _appVis = val as String;
+                      });
+                    },
+                  );
+                },
+              )
             ],
           ),
         ),
@@ -280,7 +306,11 @@ class _ProjectScreenState extends State<ProjectScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return _isLoading
-        ? Scaffold(body: CircularProgressIndicator())
+        ? Scaffold(
+            body: Center(
+                child: CircularProgressIndicator(
+            color: AppStyle.brown,
+          )))
         : Scaffold(
             backgroundColor: AppStyle.cream,
             floatingActionButton: FloatingActionButton(
@@ -315,18 +345,20 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 child: FutureBuilder(
                     future: userInfo == null
                         ? null
-                        : ApiService().getOrgByUserId(userInfo!.userId as int),
+                        : ApiService().getProjByUserId(userInfo!.userId as int),
                     builder: (context, snap) {
                       if (snap.hasData) {
-                        List<Organization> orgList =
-                            snap.data as List<Organization>;
+                        List<Project> projList = snap.data as List<Project>;
                         return ListView.builder(
-                            itemCount: orgList.length,
+                            itemCount: projList.length,
                             itemBuilder: (context, index) {
-                              return makeCard(orgList[index]);
+                              return makeCard(projList[index]);
                             });
                       } else {
-                        return Center(child: Text('No projects'));
+                        return Center(
+                            child: Text('No projects',
+                                style: TextStyle(
+                                    fontSize: AppStyle.SmallTextSize)));
                       }
                     })),
           );

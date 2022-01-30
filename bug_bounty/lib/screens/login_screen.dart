@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
             body: SafeArea(
               child: Center(
                 child: CircularProgressIndicator(
-                  color: AppStyle.white,
+                  color: AppStyle.brown,
                 ),
               ),
             ),
@@ -197,12 +197,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
+                                    setState(() {
+                                      isLoading = true;
+                                    });
                                     ApiService()
                                         .loginUser(phoneController.text,
                                             passwordController.text)
                                         .then((value) {
                                       if (value) {
-                                        print('IN');
+                                        setState(() {
+                                          isLoading = true;
+                                        });
                                         Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute<void>(
@@ -212,6 +217,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       } else {
                                         Utility().showToast(
                                             'Your username or password is incorrect');
+                                        setState(() {
+                                          isLoading = false;
+                                        });
                                       }
                                     });
                                   }

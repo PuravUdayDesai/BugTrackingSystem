@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bug_bounty/models/Organization.dart';
+import 'package:bug_bounty/models/Project.dart';
 import 'package:bug_bounty/models/User.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:http/http.dart' as http;
@@ -52,6 +53,7 @@ class ApiService {
       "organizationName": org.organizationName,
       "organizationDescription": org.organizationDescription,
       "organizationWebsite": org.organizationWebsite,
+      "markForPrivate": org.markForPrivate,
       "userId": userId
     };
     var response = await http.post(Uri.parse('$URL/organization'),
@@ -64,8 +66,54 @@ class ApiService {
     }
   }
 
+  Future<bool> addProject(Project project) async {
+    var response = await http.post(Uri.parse('$URL/application'),
+        body: json.encode(project),
+        headers: {'Content-type': 'application/json'});
+    print(response.body);
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> addRole(Map info) async {
+    var response = await http.post(Uri.parse('$URL/role'),
+        body: json.encode(info),
+        headers: {'Content-type': 'application/json'});
+    print(response.body);
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<List<Project>> getProjByUserId(int id) async {
+    var respose = await http.get(Uri.parse('$URL/application/$id'));
+    print(respose.body);
+    List res = jsonDecode(respose.body) as List;
+    List<Project> orgList = [];
+
+    for (int i = 0; i < res.length; i++) {
+      orgList.add(Project.fromJson(res[i]));
+    }
+
+    return orgList;
+  }
+
   Future<bool> deleteOrganization(int id) async {
     var response = await http.delete(Uri.parse('$URL/organization/$id'));
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> deleteProject(int id) async {
+    var response = await http.delete(Uri.parse('$URL/application/$id'));
     if (response.statusCode == 200) {
       return true;
     } else {
