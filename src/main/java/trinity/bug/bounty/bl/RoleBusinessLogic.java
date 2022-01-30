@@ -77,7 +77,6 @@ public class RoleBusinessLogic {
 				{
 					return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 				}
-				
 				c2.commit();
 				stmt2.close();
 				c2.close();

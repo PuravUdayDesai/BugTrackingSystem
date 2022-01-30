@@ -5,18 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.mail.MessagingException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import trinity.bug.bounty.ConnectionProvider;
+import trinity.bug.bounty.EmailAspect;
 import trinity.bug.bounty.models.UserLoginModel;
 import trinity.bug.bounty.models.UserLoginResponseModel;
 import trinity.bug.bounty.models.UserRegisterModel;
 
 @Service
 public class UserBusinessLogic {
-	public ResponseEntity<Void> registerUser(UserRegisterModel userRegisterModel) {
+	public ResponseEntity<Void> registerUser(UserRegisterModel userRegisterModel) throws MessagingException {
 		if (userRegisterModel == null) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
@@ -47,6 +50,13 @@ public class UserBusinessLogic {
 		} catch (SQLException e) {
 			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		EmailAspect.sendEmailWithoutAttachment(userRegisterModel.getUserEmailId(), "TO", "Welcome to Bug Bounty Family!", "<html>\n"
+				+ "<center>\n"
+				+ "<h1><font face = \"Comic sans MS\" color=\"#15b9eb\">Welcome to Bug Bounty Family!</font></h1>\n"
+				+ "<h1><font face = \"Comic sans MS\" color=\"#dbc70f\">Hi! "+userRegisterModel.getUserName()+" we are happy to have you on board</font></h1><BR/>\n"
+				+ "<a href=\"https://ibb.co/tcnGdNk\"><img src=\"https://i.ibb.co/6bGMdpV/illo-welcome-1.png\" alt=\"illo-welcome-1\" border=\"0\"></a>\n"
+				+ "</center>\n"
+				+ "</html>", "text/html");
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
