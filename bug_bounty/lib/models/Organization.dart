@@ -4,13 +4,14 @@ class Organization {
   String? organizationDescription;
   String? organizationWebsite;
   String? createdOn;
+  bool? markForPrivate;
 
   Organization(
       {this.organizationId,
       this.organizationName,
       this.organizationDescription,
       this.organizationWebsite,
-      this.createdOn});
+      this.createdOn, this.markForPrivate});
 
   Organization.fromJson(Map<String, dynamic> json) {
     organizationId = json['organizationId'];
@@ -18,6 +19,7 @@ class Organization {
     organizationDescription = json['organizationDescription'];
     organizationWebsite = json['organizationWebsite'];
     createdOn = json['createdOn'];
+    markForPrivate = json['markForPrivate'];
   }
 
   Map<String, dynamic> toJson() {
@@ -27,6 +29,7 @@ class Organization {
     data['organizationDescription'] = this.organizationDescription;
     data['organizationWebsite'] = this.organizationWebsite;
     data['createdOn'] = this.createdOn;
+    data['markForPrivate'] = this.markForPrivate;
     return data;
   }
 }

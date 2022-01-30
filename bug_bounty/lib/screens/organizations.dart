@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bug_bounty/Widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/Organization.dart';
+import 'package:bug_bounty/screens/organization_screen.dart';
 import 'package:bug_bounty/utils/ApiService.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:bug_bounty/utils/Utility.dart';
@@ -109,14 +110,13 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                   ],
                 ),
                 onTap: () {
-                  // Navigator.push(context,MaterialPageRoute(builder : (context)=>UpdateCompany(obj))).then((value){
-                  // 	if(value != null){
-                  // 		showMessage('Record Successfully Updated.!!');
-                  // 		setState((){
-                  // 			getNewData = true;
-                  // 		});
-                  // 	}
-                  // });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          SpecificOrganizationScreen(organizationInfo: org),
+                    ),
+                  );
                 })),
         Divider(),
       ],
@@ -171,6 +171,13 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                   ),
                   onTap: () => {},
                 ),
+                ListTile(
+                  title: DisplayDetails(
+                    title: 'Visibility:',
+                    info: org.markForPrivate! ? 'Private' : 'Public',
+                  ),
+                  onTap: () => {},
+                ),
                 SizedBox(height: 10.0),
               ]),
             ),
@@ -182,6 +189,7 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
     TextEditingController _orgName = TextEditingController();
     TextEditingController _orgDesc = TextEditingController();
     TextEditingController _orgWebsite = TextEditingController();
+    String? _orgVis;
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: height * 0.3),
@@ -194,7 +202,8 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
               Organization org = Organization(
                   organizationName: _orgName.text,
                   organizationDescription: _orgDesc.text,
-                  organizationWebsite: _orgWebsite.text);
+                  organizationWebsite: _orgWebsite.text,
+                  markForPrivate: _orgVis == 'Private' ? true : false);
               ApiService()
                   .addOrganization(org, userInfo!.userId as int)
                   .then((value) {
@@ -217,6 +226,7 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
         title: Row(
           children: [
             Text(title),
+            Spacer(),
             Expanded(
                 child: TextButton(
                     onPressed: () {
@@ -241,7 +251,7 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                   obscureText: false),
               AuthenticationTextField(
                   controller: _orgDesc,
-                  hintText: 'Enter organization description',
+                  hintText: 'What does organization do?',
                   keyboardType: TextInputType.text,
                   validator: (val) {
                     if (val!.isEmpty)
@@ -253,7 +263,27 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                   hintText: 'Enter your website',
                   keyboardType: TextInputType.url,
                   validator: null,
-                  obscureText: false)
+                  obscureText: false),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              StatefulBuilder(
+                builder:
+                    (BuildContext context, void Function(void Function()) st) {
+                  return DropdownButton(
+                    value: _orgVis,
+                    hint: Text('Visibility of organization'),
+                    items: ['Public', 'Private'].map((e) {
+                      return DropdownMenuItem(value: e, child: Text(e));
+                    }).toList(),
+                    onChanged: (val) {
+                      st(() {
+                        _orgVis = val as String;
+                      });
+                    },
+                  );
+                },
+              )
             ],
           ),
         ),
@@ -267,7 +297,11 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return _isLoading
-        ? Scaffold(body: CircularProgressIndicator())
+        ? Scaffold(
+            body: Center(
+                child: CircularProgressIndicator(
+            color: AppStyle.brown,
+          )))
         : Scaffold(
             backgroundColor: AppStyle.cream,
             floatingActionButton: FloatingActionButton(
@@ -292,10 +326,8 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                 iconTheme: IconThemeData(color: AppStyle.brown),
                 backgroundColor: AppStyle.cream,
                 centerTitle: true,
-                title: Image.asset(
-                  'assets/logo.jpeg',
-                  height: height * 0.09,
-                )),
+                title: Text('Organizations',
+                    style: TextStyle(color: AppStyle.brown))),
             body: Container(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                 margin: EdgeInsets.symmetric(vertical: height * 0.03),
@@ -313,7 +345,17 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
                               return makeCard(orgList[index]);
                             });
                       } else {
-                        return Center(child: Text('No organizations'));
+                        // Organization org = Organization(
+                        //     organizationId: 1,
+                        //     organizationName: "Fleetop",
+                        //     organizationDescription: "Logistics services",
+                        //     organizationWebsite: "fleetop.com",
+                        //     createdOn: '2022-01-30');
+                        // return makeCard(org);
+                        return Center(
+                            child: Text('No organizations',
+                                style: TextStyle(
+                                    fontSize: AppStyle.SmallTextSize)));
                       }
                     })),
           );

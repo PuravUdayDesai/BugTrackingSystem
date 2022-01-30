@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bug_bounty/Widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/User.dart';
-import 'package:bug_bounty/screens/organizations.dart';
+
 import 'package:bug_bounty/utils/AppStyle.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 // }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isLoading = true;
+  bool _isLoading = false;
   User? userInfo;
 
   Widget displayCard(IconData ic, String title, String count, int colorCode) {
@@ -96,7 +96,11 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return _isLoading
-        ? Scaffold(body: CircularProgressIndicator())
+        ? Scaffold(
+            body: Center(
+                child: CircularProgressIndicator(
+            color: AppStyle.brown,
+          )))
         : Scaffold(
             backgroundColor: AppStyle.cream,
             drawer: SafeArea(
