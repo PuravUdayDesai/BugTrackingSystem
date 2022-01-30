@@ -1,4 +1,5 @@
 import 'package:bug_bounty/screens/login_screen.dart';
+import 'package:bug_bounty/screens/dashboard.dart';
 import 'package:bug_bounty/utils/AppStyle.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: AppStyle.cream,
       showLoader: true,
       loadingText: Text("Loading..."),
-      navigator: LoginScreen(),
+      navigator: HomeScreen(),
       durationInSeconds: 2,
     );
   }

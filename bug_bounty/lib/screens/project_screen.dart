@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bug_bounty/Widgets/custom_drawer.dart';
+import 'package:bug_bounty/widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/Organization.dart';
 import 'package:bug_bounty/utils/ApiService.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';

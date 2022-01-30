@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bug_bounty/Widgets/custom_drawer.dart';
+import 'package:bug_bounty/widgets/custom_drawer.dart';
 import 'package:bug_bounty/models/User.dart';
 import 'package:bug_bounty/screens/organizations.dart';
 import 'package:bug_bounty/utils/AppStyle.dart';
@@ -23,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 // }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isLoading = true;
+  bool _isLoading = false;
   User? userInfo;
 
   Widget displayCard(IconData ic, String title, String count, int colorCode) {
@@ -77,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    setState(() {
-      _isLoading = true;
-    });
+    //setState(() {
+      //_isLoading = true;
+    //});
     PrefsHelper().getUserInfo().then((value) {
       userInfo = User.fromJson(json.decode(value));
       print(userInfo);
@@ -233,13 +233,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Expanded(
                                           child: displayCard(
                                               Icons.pages,
-                                              'Tickets',
+                                              'Tickets generated',
                                               '10', //${dashboardData.numberOftickets}
                                               0xffeb6963)),
                                       Expanded(
                                         child: displayCard(
                                             Icons.business_center,
-                                            'Executives',
+                                            'Tickets resolved',
                                             '20', //${dashboardData.numberOfExecutives}
                                             0xff28b061),
                                       )
