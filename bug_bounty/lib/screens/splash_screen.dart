@@ -4,6 +4,9 @@ import 'package:bug_bounty/utils/AppStyle.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import '../l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key}) : super(key: key);
 
@@ -20,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
       ),
       backgroundColor: AppStyle.cream,
       showLoader: true,
-      loadingText: Text("Loading..."),
+      loadingText: Text(AppLocalizations.of(context)!.loading),
       navigator: HomeScreen(),
       durationInSeconds: 2,
     );

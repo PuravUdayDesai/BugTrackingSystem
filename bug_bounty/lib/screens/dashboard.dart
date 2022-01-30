@@ -6,6 +6,10 @@ import 'package:bug_bounty/models/User.dart';
 import 'package:bug_bounty/utils/AppStyle.dart';
 import 'package:bug_bounty/utils/PrefHelper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import '../l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -134,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 flex: 1,
                                 child: Center(
                                   child: Text(
-                                    'Top Perfomances',
+                                    AppLocalizations.of(context)!.topPerformances,
                                     textScaleFactor: 1.8,
                                     style: TextStyle(
                                       color: AppStyle.brown,
@@ -201,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     flex: 2,
                                     child: Center(
                                         child: Text(
-                                      'STATS AT GLANCE',
+                                      AppLocalizations.of(context)!.statsAtGlance,
                                       textScaleFactor: 1.8,
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -216,14 +220,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Expanded(
                                         child: displayCard(
                                             Icons.shopping_cart,
-                                            'Products',
+                                            AppLocalizations.of(context)!.products,
                                             '5', //${dashboardData.numberOfProducts}
                                             0xffffc400),
                                       ),
                                       Expanded(
                                         child: displayCard(
                                             Icons.people,
-                                            'Clients',
+                                            AppLocalizations.of(context)!.clients,
                                             '2', //${dashboardData.numberOfClients}
                                             0xff2c75b0),
                                       )
@@ -237,13 +241,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Expanded(
                                           child: displayCard(
                                               Icons.pages,
-                                              'Tickets generated',
+                                              AppLocalizations.of(context)!.ticketGnerated,
                                               '10', //${dashboardData.numberOftickets}
                                               0xffeb6963)),
                                       Expanded(
                                         child: displayCard(
                                             Icons.business_center,
-                                            'Tickets resolved',
+                                            AppLocalizations.of(context)!.ticketResolved,
                                             '20', //${dashboardData.numberOfExecutives}
                                             0xff28b061),
                                       )

@@ -1,0 +1,71 @@
+{
+	"language": "English",
+	"@language": {
+		"description": "The current Language"
+	},																																																																								
+
+	"helloWorld": "Hello World !!",
+	"@helloWorld": {
+		"description": "A programmer greeting"
+	},
+
+
+	"topPerformances": "Top Performances",
+	"@topPerformances": {
+		"description": "A programmer greeting"
+	},
+
+	"loading": "लोड हो रहा है",
+	"@loading": {
+		"description": "A programmer greeting"
+	},
+
+	"statsAtGlance": "Stats at glance",
+	"@statsAtGlance": {
+		"description": "A programmer greeting"
+	},
+
+	"listOfEmployees": "List Of Employees",
+	"@listOfEmployees": {
+		"description": "A programmer greeting"
+	},
+	"inviteEmployees": "Invite Employees",
+	"@inviteEmployees": {
+		"description": "A programmer greeting"
+	},
+	"createRoles": "Create roles",
+	"@createRoles": {
+		"description": "A programmer greeting"
+	},
+	"projects": "Projects",
+	"@projects": {
+		"description": "A programmer greeting"
+	},
+	"organizations": "Organizations",
+	"@organizations": {
+		"description": "A programmer greeting"
+	},
+	"dashboard": "Dashboard",
+	"@dashboard": {
+		"description": "A programmer greeting"
+	},
+
+	"ticketResolved": "Ticket Resolves",
+	"@ticketResolved": {
+		"description": "A programmer greeting"
+	},
+	"ticketGnerated": "Ticket Generated",
+	"@ticketGnerated": {
+		"description": "A programmer greeting"
+	},
+	"clients": "Clients",
+	"@clients": {
+		"description": "A programmer greeting"
+	},
+	"products": "Products",
+	"@products": {
+		"description": "A programmer greeting"
+	}
+}
+
+

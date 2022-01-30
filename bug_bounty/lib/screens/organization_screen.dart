@@ -10,6 +10,10 @@ import 'package:bug_bounty/widgets/basic_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import '../l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class SpecificOrganizationScreen extends StatefulWidget {
   final Organization organizationInfo;
   SpecificOrganizationScreen({required this.organizationInfo});
@@ -80,7 +84,7 @@ class _SpecificOrganizationScreenState
                                   borderRadius: BorderRadius.circular(15)),
                               child: Center(
                                   child: Text(
-                                'Create roles',
+                                AppLocalizations.of(context)!.createRoles,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: AppStyle.SmallTextSize,
@@ -116,7 +120,7 @@ class _SpecificOrganizationScreenState
                                 borderRadius: BorderRadius.circular(15)),
                             child: Center(
                                 child: Text(
-                              'Invite Employees',
+                              AppLocalizations.of(context)!.inviteEmployees,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: AppStyle.SmallTextSize,
@@ -129,7 +133,8 @@ class _SpecificOrganizationScreenState
                         height: height * 0.05,
                       ),
                       Divider(thickness: 1),
-                      Text('List of tickets',
+                      Text(
+                      AppLocalizations.of(context)!.listOfEmployees,
                           style: TextStyle(
                               fontSize: AppStyle.MediumTextSize,
                               color: AppStyle.brown,

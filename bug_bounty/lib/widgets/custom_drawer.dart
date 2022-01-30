@@ -4,6 +4,10 @@ import 'package:bug_bounty/screens/project_screen.dart';
 import 'package:bug_bounty/utils/AppStyle.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import '../l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CustomDrawer extends StatelessWidget {
   final int index;
   final String userName;
@@ -56,7 +60,7 @@ class CustomDrawer extends StatelessWidget {
         SizedBox(height: height * 0.01),
         ListTile(
           leading: Icon(Icons.dashboard, color: AppStyle.brown),
-          title: Text('Dashboard'),
+          title: Text(AppLocalizations.of(context)!.dashboard),
           tileColor: index == 1 ? AppStyle.cream : null,
           onTap: () {
             Navigator.push(
@@ -69,7 +73,7 @@ class CustomDrawer extends StatelessWidget {
         ),
         ListTile(
           leading: Icon(Icons.blur_circular_rounded, color: AppStyle.brown),
-          title: Text('Organizations'),
+          title: Text(AppLocalizations.of(context)!.organizations),
           tileColor: index == 2 ? AppStyle.cream : null,
           onTap: () {
             Navigator.push(
@@ -82,7 +86,7 @@ class CustomDrawer extends StatelessWidget {
         ),
         ListTile(
           leading: Icon(Icons.folder_open, color: AppStyle.brown),
-          title: Text('Projects'),
+          title: Text(AppLocalizations.of(context)!.projects),
           tileColor: index == 3 ? AppStyle.cream : null,
           onTap: () {
             Navigator.push(
