@@ -78,6 +78,9 @@ Screenshot Links:
 - [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg)
 - [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg)
 
+## Video Demo
+Link: [https://drive.google.com/file/d/1gcfj9UqcMrG5s4dvn3PbmdAQiVZ8Hd-Y/view?usp=sharing](https://drive.google.com/file/d/1gcfj9UqcMrG5s4dvn3PbmdAQiVZ8Hd-Y/view?usp=sharing)
+
 ## Code & Document Links
 
 - The source code for backend is avaliable in [backend](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/tree/backend) branch
