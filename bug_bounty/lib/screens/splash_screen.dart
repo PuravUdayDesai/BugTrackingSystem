@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: AppStyle.cream,
       showLoader: true,
       loadingText: Text(AppLocalizations.of(context)!.loading),
-      navigator: HomeScreen(),
+      navigator: LoginScreen(),
       durationInSeconds: 2,
     );
   }
