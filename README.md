@@ -1,4 +1,3 @@
-# TRINIT_Multitech_DEV02
 <p align="center">
   <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/bug%20bounty.jpeg" />
 </p>
