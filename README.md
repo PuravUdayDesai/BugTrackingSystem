@@ -1,23 +1,23 @@
 <p align="center">
-  <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/bug%20bounty.jpeg" />
+  <img src="/bug%20bounty.jpeg" />
 </p>
 
 ## Tech Stack
 
 <p align="center">
-  <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/tech_stack.png" />
+  <img src="/tech_stack.png" />
 </p>
 
 ## Software Architecture
 
 <p align="center">
-  <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/software_architecture.png" />
+  <img src="/software_architecture.png" />
 </p>
 
 ## Workflow Graph
 
 <p align="center">
-  <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/workflow.png" />
+  <img src="/workflow.png" />
 </p>
 
 ## Database and Prototype
@@ -47,52 +47,52 @@ API Documentation Link: [https://documenter.getpostman.com/view/13664185/UVeCQTt
 <table>
   <tr>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg" />
+      <img src="/image_1.jpeg" />
     </td>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg" />
+      <img src="/image_5.jpeg" />
     </td>
   </tr>
    <tr>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg" />
+      <img src="/image_3.jpeg" />
     </td>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg" />
+      <img src="/image_10.jpeg" />
     </td>
   </tr>
 </table>
 
 Screenshot Links: 
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_1.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_2.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_2.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_3.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_4.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_4.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_5.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_6.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_6.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_7.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_7.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_8.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_8.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_9.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_9.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_10.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_11.jpeg)
-- [https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_12.jpeg)
+- [image_1.jpeg](/image_1.jpeg)
+- [image_2.jpeg](/image_2.jpeg)
+- [image_3.jpeg](/image_3.jpeg)
+- [image_4.jpeg](/image_4.jpeg)
+- [image_5.jpeg](/image_5.jpeg)
+- [image_6.jpeg](/image_6.jpeg)
+- [image_7.jpeg](/image_7.jpeg)
+- [image_8.jpeg](/image_8.jpeg)
+- [image_9.jpeg](/image_9.jpeg)
+- [image_10.jpeg](/image_10.jpeg)
+- [image_11.jpeg](/image_11.jpeg)
+- [image_12.jpeg](/image_12.jpeg)
 
 ## Screenshots [Internationalization]
 <table>
   <tr>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_13.jpeg" />
+      <img src="/image_13.jpeg" />
     </td>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_14.jpeg" />
+      <img src="/image_14.jpeg" />
     </td>
   </tr>
    <tr>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_15.jpeg" />
+      <img src="/image_15.jpeg" />
     </td>
     <td>
-      <img src="https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/blob/main/image_16.jpeg" />
+      <img src="/image_16.jpeg" />
     </td>
   </tr>
 </table>
@@ -102,5 +102,5 @@ Link: [https://drive.google.com/file/d/1gcfj9UqcMrG5s4dvn3PbmdAQiVZ8Hd-Y/view?us
 
 ## Code & Document Links
 
-- The source code for backend is avaliable in [backend](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/tree/backend) branch
-- The source code for mobile application is avaliable in [mobile](https://github.com/PuravUdayDesai/TRINIT_Multitech_DEV02/tree/mobile) branch
+- The source code for backend is avaliable in ```backend``` branch
+- The source code for mobile application is avaliable in ```mobile``` branch
